@@ -22,6 +22,17 @@ public class Account {
     }
 
     public void withdraw(int amount) {
-        this.balance -= amount;
+        System.out.println("Attempting to withdraw: " + amount);
+        String outcome;
+        if (this.balance >= amount) {
+            this.balance -= amount;
+            outcome = "success";
+        } else {
+            outcome="fail";
+        }
+
+       Result result = new Result(outcome, this.balance);
+        System.out.println("Withdrawal outcome: " + result.getOutcome());
+        System.out.println("New balance: " + result.getBalance());
     }
 }
